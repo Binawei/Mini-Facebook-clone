@@ -1,4 +1,4 @@
-package com.facebook.facebook.services;
+package com.facebook.facebook.exceptions;
 
 public class UsernameNotFoundException extends RuntimeException {
     public UsernameNotFoundException(String s) {

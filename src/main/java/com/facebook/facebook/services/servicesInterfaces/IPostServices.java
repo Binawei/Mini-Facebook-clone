@@ -1,4 +1,4 @@
-package com.facebook.facebook.services;
+package com.facebook.facebook.services.servicesInterfaces;
 
 import com.facebook.facebook.entities.Post;
 

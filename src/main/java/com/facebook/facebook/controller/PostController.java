@@ -18,12 +18,11 @@ import java.util.Optional;
 @Controller
 public class PostController {
     private final PostServicesImpl postService;
-    private final UserServicesImpl userServices;
+
 
     @Autowired
-    public PostController(PostServicesImpl postService, UserServicesImpl userServices) {
+    public PostController(PostServicesImpl postService) {
         this.postService = postService;
-        this.userServices = userServices;
     }
 
     @GetMapping("/posts")
@@ -54,15 +53,15 @@ public class PostController {
 //        model.addAttribute("post", post.orElse(null));
 //        return "edit-post";
 //    }
-    private Long getUserIdFromPrincipal(Principal principal) {
-        // Assuming the Principal object represents the username as a String
-        String username = principal.getName();
-
-        // Retrieve the user ID based on the username
-        Long userId = userServices.getUserIdByUsername(username);
-
-        return userId;
-   }
+//    private Long getUserIdFromPrincipal(Principal principal) {
+//        // Assuming the Principal object represents the username as a String
+//        String username = principal.getName();
+//
+//        // Retrieve the user ID based on the username
+//        Long userId = userServices.getUserIdByUsername(username);
+//
+//        return userId;
+//   }
 
 
 
@@ -125,13 +124,13 @@ public class PostController {
 
 
     @PostMapping("/posts/create")
-    public String createPost(@RequestParam("content") String content, HttpSession session) {
+    public String createPost(@ModelAttribute("post") Post post, @RequestParam("content") String content, HttpSession session) {
         // Get the authenticated user from the session
         System.out.println("oh mehn!");
         FacebookUser user = (FacebookUser) session.getAttribute("user");
 
         // Create a new Post object
-        Post post = new Post();
+//        Post post = new Post();
         post.setUser(user);
         post.setContent(content);
         post.setTimestamp(LocalDateTime.now());

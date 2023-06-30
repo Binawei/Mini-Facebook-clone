@@ -1,16 +1,16 @@
 package com.facebook.facebook.services;
 
-import com.facebook.facebook.entities.FacebookUser;
 import com.facebook.facebook.entities.Post;
 import com.facebook.facebook.repositories.PostRepository;
 import com.facebook.facebook.repositories.UserRepository;
+import com.facebook.facebook.services.servicesInterfaces.IPostServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 @Service
-public class PostServicesImpl implements IPostServices{
+public class PostServicesImpl implements IPostServices {
     private final PostRepository postRepository;
     private final UserRepository userRepository;
 

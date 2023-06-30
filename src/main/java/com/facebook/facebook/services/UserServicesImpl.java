@@ -2,13 +2,14 @@ package com.facebook.facebook.services;
 
 import com.facebook.facebook.entities.FacebookUser;
 import com.facebook.facebook.repositories.UserRepository;
+import com.facebook.facebook.services.servicesInterfaces.IUserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 @Service
-public class UserServicesImpl implements IUserServices{
+public class UserServicesImpl implements IUserServices {
     private final UserRepository userRepository;
 
     @Autowired

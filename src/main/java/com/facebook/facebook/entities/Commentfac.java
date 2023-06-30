@@ -24,6 +24,7 @@ public class Commentfac {
     @Column(nullable = false)
     private LocalDateTime timestamp;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private FacebookUser user;
@@ -36,11 +37,10 @@ public class Commentfac {
     @OneToMany(mappedBy = "commentfac", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Likes> likes = new ArrayList<>();
 
-    public Commentfac(String text, LocalDateTime timestamp, FacebookUser user, Post post, List<Likes> likes) {
+    public Commentfac(String text,FacebookUser user, Post post) {
         this.text = text;
-        this.timestamp = timestamp;
         this.user = user;
         this.post = post;
-        this.likes = likes;
     }
+
 }

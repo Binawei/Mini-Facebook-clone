@@ -18,6 +18,8 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "username")
+    private String username;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "facebook_user_id", nullable = false)
     private FacebookUser user;
@@ -33,6 +35,6 @@ public class Post {
 
     @Column
     private LocalDateTime timestamp;
-
-
+    @Column(nullable = false)
+    private Integer likeCount = 0;
 }
